@@ -4,13 +4,16 @@ import java.util.*;
     
     public class Schiffeversenken
 {
+    
     int feldgroeße = 10;
     String [] [] meer = new String [feldgroeße][feldgroeße];
     int buchstabeInZahl;
    
     public Schiffeversenken()
     {
+        
         spielStarten();
+        
     }
 
     public void spielStarten(){
@@ -30,7 +33,7 @@ import java.util.*;
     public void meerAnzeigen(){
        
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-       System.out.println("     A..B.C.D.E..F.G.H. I. J  \n");
+        System.out.println("     A..B.C.D.E..F.G.H. I. J  \n");
                                 
         for (int i = 0; i<feldgroeße; i++){
             
@@ -61,6 +64,7 @@ import java.util.*;
                 System.out.print("\n");
             
             }
+            
         }
         
         System.out.println("\n\n\n\n\n\n\n");
@@ -92,6 +96,7 @@ import java.util.*;
                         System.out.print(meer[i][j]+ " ");
                     
                     }
+                    
                 }
                 
                 System.out.print("\n");
@@ -103,6 +108,7 @@ import java.util.*;
                 System.out.print(i+1 +"    ");
                 
                 for (int j = 0; j<feldgroeße; j++){
+                    
                     if (meer[i][j] == "\u25a0"){
                         
                         System.out.print("\u25a1 ");
@@ -113,51 +119,52 @@ import java.util.*;
                         System.out.print(meer[i][j]+ " ");
                     
                     }
+                    
                 }
                 
                 System.out.print("\n");
             
             }
+            
         }
         
     }
     
     
     public void buchstabeZuZahl(char pBuchstabe){
+        
         int k1 = 0;
         
-        if(pBuchstabe == 'A'){
-            k1 = 0;
-        }else if(pBuchstabe == 'B'){
-            k1 = 1;
-        }else if(pBuchstabe == 'C'){
-            k1 = 2;
-        }else if(pBuchstabe == 'D'){
-            k1 = 3;
-        }else if(pBuchstabe == 'E'){
-            k1 = 4;
-        }else if(pBuchstabe == 'F'){
-            k1 = 5;
-        }else if(pBuchstabe == 'G'){
-            k1 = 6;
-        }else if(pBuchstabe == 'H'){
-            k1 = 7;
-        }else if(pBuchstabe == 'I'){
-            k1 = 8;
-        }else if(pBuchstabe == 'J'){
-            k1 = 9;
-        }
+            if(pBuchstabe == 'A'){
+                k1 = 0;
+            }else if(pBuchstabe == 'B'){
+                k1 = 1;
+            }else if(pBuchstabe == 'C'){
+                k1 = 2;
+            }else if(pBuchstabe == 'D'){
+                k1 = 3;
+            }else if(pBuchstabe == 'E'){
+                k1 = 4;
+            }else if(pBuchstabe == 'F'){
+                k1 = 5;
+            }else if(pBuchstabe == 'G'){
+                k1 = 6;
+            }else if(pBuchstabe == 'H'){
+                k1 = 7;
+            }else if(pBuchstabe == 'I'){
+                k1 = 8;
+            }else if(pBuchstabe == 'J'){
+                k1 = 9;
+            }
         
         buchstabeInZahl = k1;
+        
     }   
     
     public void schiffPlatzieren(char pBuchstabe , int pZahl){
         
         buchstabeZuZahl(pBuchstabe);
-                
-        
         meer [pZahl-1] [buchstabeInZahl] = "\u25a0" ;
-      
         meerAnzeigen();
         
     }
@@ -172,10 +179,9 @@ import java.util.*;
    
     void schiffDa(char pBuchstabe,int pZahl) {
             
-            buchstabeZuZahl(pBuchstabe);
-        
-            int qReihe = buchstabeInZahl;
-            int qSpalte = pZahl -1;
+        buchstabeZuZahl(pBuchstabe);
+        int qReihe = buchstabeInZahl;
+        int qSpalte = pZahl -1;
         
             if(meer [qReihe] [qSpalte] == "\u25a1") {
                 
@@ -212,31 +218,27 @@ import java.util.*;
     
     void schiff5Zufall() {
             //platziert 5 einzelne Schiffe zufällig
-            for(int i=0; i<5; i++) {
-                 
-                int reihe = (int)(Math.random()*feldgroeße)+ 1;
-                reihe --;
-                int spalte = (int)(Math.random()*feldgroeße)+ 1;
-                spalte --;
-                meer [reihe] [spalte] = "\u25a0";
-                 
-            }
+        for(int i=0; i<5; i++) {
+             
+            int reihe = (int)(Math.random()*feldgroeße)+ 1;
+            reihe --;
+            int spalte = (int)(Math.random()*feldgroeße)+ 1;
+            spalte --;
+            meer [reihe] [spalte] = "\u25a0";
+             
+        }
         
     }
     
     void schiffGroeßerEins() {
                 
-               int reihe = (int)(Math.random()*feldgroeße)+ 1;
-               reihe --;
-               int spalte = (int)(Math.random()*feldgroeße)+ 1;
-               spalte --;
-               meer [reihe] [spalte] = "\u25a0";
-               
-               
-               int richtung = (int) (Math.random()*4)+1; 
-               int schiffslaenge = (int) (Math.random()*4)+1;
-               
-                             
+           int reihe = (int)(Math.random()*feldgroeße)+ 1;
+           reihe --;
+           int spalte = (int)(Math.random()*feldgroeße)+ 1;
+           spalte --;
+           meer [reihe] [spalte] = "\u25a0";
+           int richtung = (int) (Math.random()*4)+1; 
+           int schiffslaenge = (int) (Math.random()*4)+1;
                
                if (richtung == 1)                                       //Schiff wird nach Norden gelegt.
                {
@@ -319,8 +321,11 @@ import java.util.*;
                    }
                    
                }
+               
     }
+    
 }
+
      // funktionierende Zeichen:
      /*
       * \u263c      ☼

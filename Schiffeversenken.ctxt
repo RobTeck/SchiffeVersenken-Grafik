@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Schiffeversenken()
+comment1.params=
+comment1.target=void\ spielStarten()
+comment2.params=
+comment2.target=void\ meerAnzeigen()
+comment3.params=
+comment3.target=void\ meerNachEreignis()
+comment4.params=pBuchstabe
+comment4.target=void\ buchstabeZuZahl(char)
+comment5.params=pBuchstabe\ pZahl
+comment5.target=void\ schiffPlatzieren(char,\ int)
+comment6.params=
+comment6.target=void\ testen()
+comment7.params=pBuchstabe\ pZahl
+comment7.target=void\ schiffDa(char,\ int)
+comment8.params=
+comment8.target=void\ schiff5Zufall()
+comment9.params=
+comment9.target=void\ schiffGroe\u00DFerEins()
+numComments=10

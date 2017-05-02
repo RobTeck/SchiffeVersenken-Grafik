@@ -10,7 +10,7 @@ import java.util.*;
    
     public Schiffeversenken()
     {
-     
+        spielStarten();
     }
 
     public void spielStarten(){
@@ -30,7 +30,7 @@ import java.util.*;
     public void meerAnzeigen(){
        
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-       System.out.println("0    A..B..C.D.E.F.G.H. I. J  \n");
+       System.out.println("     A..B.C.D.E..F.G.H. I. J  \n");
                                 
         for (int i = 0; i<feldgroeße; i++){
             
@@ -72,7 +72,7 @@ import java.util.*;
     public void meerNachEreignis(){
        
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-       System.out.println("0    A..B..C.D.E.F.G.H. I. J  \n");
+        System.out.println("     A..B.C.D.E..F.G.H. I. J  \n");
                                 
         for (int i = 0; i<feldgroeße; i++){
             
@@ -82,8 +82,16 @@ import java.util.*;
                 
                 for (int j = 0; j<feldgroeße; j++){
                     
-                    System.out.print(meer[i][j]+ " ");
+                    if (meer[i][j] == "\u25a0"){
+                        
+                        System.out.print("\u25a1 ");
+                        
+                    }
+                    else{
                     
+                        System.out.print(meer[i][j]+ " ");
+                    
+                    }
                 }
                 
                 System.out.print("\n");
@@ -95,9 +103,16 @@ import java.util.*;
                 System.out.print(i+1 +"    ");
                 
                 for (int j = 0; j<feldgroeße; j++){
-                 
-                    System.out.print(meer[i][j]+ " ");
+                    if (meer[i][j] == "\u25a0"){
+                        
+                        System.out.print("\u25a1 ");
+                        
+                    }
+                    else{
                     
+                        System.out.print(meer[i][j]+ " ");
+                    
+                    }
                 }
                 
                 System.out.print("\n");
@@ -151,7 +166,7 @@ import java.util.*;
     
         spielStarten();
         schiffPlatzieren('D',8);
-    
+        System.out.println("Testschiff platziert auf D 8");
     
     }
    
@@ -196,7 +211,7 @@ import java.util.*;
      
     
     void schiff5Zufall() {
-        
+            //platziert 5 einzelne Schiffe zufällig
             for(int i=0; i<5; i++) {
                  
                 int reihe = (int)(Math.random()*feldgroeße)+ 1;
@@ -246,6 +261,14 @@ import java.util.*;
                else if (richtung == 2)                                      //Schiff wird nach Osten gelegt.
                {
                    
+                   if(spalte + schiffslaenge > 9){
+                       
+                       int ueberlaenge;
+                       ueberlaenge = schiffslaenge - (9-spalte);
+                       schiffslaenge = schiffslaenge - ueberlaenge;
+                       
+                    }
+                   
                    for(int i=0; i< schiffslaenge; i++)
                    {
                        
@@ -277,6 +300,15 @@ import java.util.*;
                }
                else if (richtung == 4)                                       //Schiff wird nach Westen gelegt.
                {
+                   
+                   if(spalte - schiffslaenge < 0){
+                       
+                       int ueberlaenge;
+                       ueberlaenge = schiffslaenge - (9-spalte);
+                       schiffslaenge = schiffslaenge - ueberlaenge;
+                       
+                    }
+                   
                    
                    for(int i=0; i< schiffslaenge; i++)
                    {
